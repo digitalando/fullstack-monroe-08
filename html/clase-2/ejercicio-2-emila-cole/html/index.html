@@ -15,23 +15,23 @@
 <body class="home">
   <header>
     <!-- Claramente hay mejores maneras que usar <br>, lo resolvemos con lo que aprendimos hasta el momento -->
-    <nav class="main-nav">
-      <a href="index.html">Home</a><br>
-      <a href="about.html">About</a><br>
-      <a href="music.html">Music</a><br>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <nav class="social-nav">
-      <!-- Todo enlace que nos saque del sitio, vamos a querer que lo haga en una pestaña nueva,
-      para que cuando el usuario, la cierre, vuelva automáticamente a nuestro sitio.
-      Eso lo hacemos con el atributo target="_blank" en el enlace -->
-      <a href="facebook" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="facebook" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="facebook" target="_blank"><i class="fab fa-spotify"></i></a>
-      <a href="facebook" target="_blank"><i class="fab fa-apple"></i></a>
-      <a href="facebook" target="_blank"><i class="fab fa-amazon"></i></a>
-      <a href="facebook" target="_blank"><i class="fab fa-instagram"></i></a>
-    </nav>
+    <ul class="main-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="music.html">Music</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li class="social-nav">
+        <!-- Todo enlace que nos saque del sitio, vamos a querer que lo haga en una pestaña nueva,
+        para que cuando el usuario, la cierre, vuelva automáticamente a nuestro sitio.
+        Eso lo hacemos con el atributo target="_blank" en el enlace -->
+        <a href="facebook" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="facebook" target="_blank"><i class="fab fa-spotify"></i></a>
+        <a href="facebook" target="_blank"><i class="fab fa-apple"></i></a>
+        <a href="facebook" target="_blank"><i class="fab fa-amazon"></i></a>
+        <a href="facebook" target="_blank"><i class="fab fa-instagram"></i></a>
+      </li>
+    </ul>
   </header>
   <main>
     <!-- Claramente hay mejores maneras que usar <br>, lo resolvemos con lo que aprendimos hasta el momento -->
@@ -40,8 +40,12 @@
     <br>
     <br>
     <br>
-    <h2>Emilia<br>
-    Cole //</h2>
+    <ul class="name">
+      <li>
+        <h2>Emilia<br>
+          Cole //</h2>
+      </li>
+    </ul>
     <br>
     <br>
     <br>

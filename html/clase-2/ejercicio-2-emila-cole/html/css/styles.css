@@ -27,8 +27,12 @@ a {
 }
 
 /* Navegación */
-header nav a {
+header .main-nav a {
   text-transform: uppercase;
+}
+
+header .social-nav a i {
+  color: #333;
 }
 
 /* About */
@@ -40,13 +44,14 @@ header nav a {
   background-position: top right;
 }
 
+.home ul.main-nav,
+.home ul.name {
+  list-style-type: none;
+}
+
 .home .main-nav a {
   color: #555;
   font-size: 14px;
-  line-height: 32px;
-}
-
-.home .social-nav a {
   line-height: 32px;
 }
 
