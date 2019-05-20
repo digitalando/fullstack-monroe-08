@@ -13,17 +13,19 @@ h4 {
   text-transform: uppercase;
 }
 
-h1 {
-  font-size: 60px;
-}
+h1 { font-size: 66px; }
 
-/* Para mi el titula diferente de la home era el H2, por orden de tamaños */
+/* Para mi el titulo de la home era el H2, por orden de tamaños */
 h2 {
   font-family: 'Work Sans', sans-serif;
   font-size: 32px;
   letter-spacing: 3px;
   color: #333;
 }
+
+h3 { font-size: 22px; }
+
+ul { list-style: none; }
 
 a {
   color: black;
@@ -56,11 +58,6 @@ p.social-nav {
   background-position: top right;
 }
 
-.home ul.main-nav,
-.home ul.name {
-  list-style-type: none;
-}
-
 .home .main-nav a {
   color: #555;
   font-size: 14px;
@@ -89,3 +86,21 @@ p.social-nav {
 
 .about blockquote.quote { font-size: 24px; }
 .about blockquote.author { font-size: 14px; }
+
+/* Music */
+
+.music {
+  background-image: url("../img/emilia-music-top.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+ul.links a { color: gray; }
+
+ul.playlist {
+  list-style: decimal-leading-zero;
+  font-size: 14px;
+  line-height: 32px;
+}
+
+a.back-to-top { color: gray; }
