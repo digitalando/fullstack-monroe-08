@@ -1,0 +1,43 @@
+* { box-sizing: border-box; }
+
+body {
+  background-color: #ffdda1;
+  margin: 24 0 24px;
+}
+
+/* A pesar de haber implementado bootstrap, puedo agregar mis estilos para
+   modificar lo que necesite de sus clases. */
+
+/* Esquema de colores */
+/* https://coolors.co/ffbe0b-fe621d-ff006e-8338ec-3a86ff */
+
+.navbar {
+  background-color: #ff824c;
+  box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.25);
+}
+
+.container,
+.container-fluid {
+  background-color: #ecc8ae;
+  background-image: url(../img/wild-sea.png);
+  margin-top: 24px;
+  padding: 24px;
+  box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.25);
+}
+
+h1,
+section {
+  padding: 12px;
+  margin-bottom: 24px;
+  background-color: #ffd151;
+  box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.25);
+}
+
+/* Resaltamos los bordes de las columnas */
+/* Acá estamos diciendo, un elemento con clase row, cuyo hijo inmediato tenga
+   una clase que comienze con col. Eso para poder agarrar tanto col, como col-3,
+   col-6, col-md-6, etc */
+.row > [class^=col] {
+  border: 1px dashed #333;
+  padding: 6px;
+}
