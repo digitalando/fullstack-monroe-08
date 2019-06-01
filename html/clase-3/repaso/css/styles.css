@@ -1,0 +1,86 @@
+/* Esta hoja de estilos la comparten dos archivos, relative-units.html
+   y font-sizing.html. Para asegurarnos que los estilos no se pisen, vamos a
+   usar clases diferentes en el body de cada una de ellas. */
+
+/* Esquema de colores */
+/* https://coolors.co/292f36-ff824c-4ecdc4-f7fff7-ffe66d */
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: sans-serif;
+}
+
+body.relative-units {
+  background: #292f36;
+  margin: 24px 0;
+}
+
+.relative-units h1 {
+  color: white;
+  padding: 0 24px;
+}
+
+.highlight {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.notification {
+  padding: 12px;
+  background-color: #f7fff7;
+  border-radius: 12px;
+}
+
+body > .notification { margin: 0 24px 24px; }
+
+.container {
+  width: 800px;
+  background-color: #4ecdc4;
+  margin: 0 0 24px;
+  padding: 12px;
+}
+
+.container .label {
+  float: right;
+  text-align: right;
+}
+
+.no-container { margin: 0 0 24px; }
+
+.porcentage,
+.view-width {
+  position: relative;
+  min-height: 200px;
+  padding: 24px;
+  color: #292f36;
+  background-color: #ff824c;
+}
+
+.porcentage { width: 50%; }
+
+.view-width { width: 50vw; }
+
+.login {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  text-align: center;
+  background-color: #ffe66d;
+
+}
+
+.login  input {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+
+p {
+  /*font-size: 10vw;*/
+}
+
+p span { font-size: 1.5em }
+
+p span span { font-size: 1.5rem }

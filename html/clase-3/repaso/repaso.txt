@@ -1,0 +1,14 @@
+# Repaso
+- Posicionamiento (repaso rápido)
+- z-index (repaso rápido)
+  - https://developer.mozilla.org/es/docs/Web/CSS/CSS_Positioning/entendiendo_z_index
+- Viewport
+  - https://css-tricks.com/snippets/html/responsive-meta-tag/
+- Medidas relativas (ancho)
+  - Px, %, Vw, Vh, min / max
+  - https://www.youtube.com/watch?v=__KNqdpqji0
+- Medidas relativas (fuente)
+  - Px, %, em, rem, Vw,
+  - https://www.youtube.com/watch?v=OQXZb3W6sgE
+- Media queries
+  - Mobile first, desktop first

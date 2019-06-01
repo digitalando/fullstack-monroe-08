@@ -1,0 +1,77 @@
+/* Esquema de colores */
+/* https://coolors.co/d1f0b1-b6cb9e-92b4a7-8c8a93-81667a */
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0 0 48px;
+  background-color: #81667a;
+  color: #333;
+}
+
+h1 {
+  color: #ddd;
+  max-width: 1200px;
+  margin: 1em auto;
+}
+
+.listado {
+  padding: 2%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #92b4a7;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.producto {
+  float: left;
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  padding: 12px;
+  background: #d1f0b1;
+}
+
+/* Mobile first */
+@media screen and (min-width: 600px) {
+  .producto {
+    width: 49%;
+  }
+  .producto:nth-child(even) {
+    margin-right: 2%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .producto {
+    width: 32%;
+    margin-right: 2%;
+  }
+
+  .producto:nth-child(3n+4) {
+    margin-right: 0;
+  }
+}
+
+/* Podemos tener estilos para imprimir */
+@media print {  }
+
+/*  Desktop First - Esto se hacía antes.
+@media screen and (max-width: 900px) {
+  .producto { width: 32%; }
+}
+
+@media screen and (max-width: 768px) {
+  .producto { width: 49%; }
+}
+
+@media screen and (max-width: 600px) {
+  .producto {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+*/

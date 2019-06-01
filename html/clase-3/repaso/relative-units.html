@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Medidas relativas</title>
+</head>
+<body class="relative-units">
+  <h1>Medidas relativas</h1>
+  <p class="notification">Usar las herramientas de desarrollador para ver esta página en diferentes tamaños.</p>
+
+  <div class="no-container porcentage">
+    <p class="highlight">width: 50%</p>
+    <p>Siempre tomará de referencia su padre (el body en este caso).</p>
+  </div>
+
+  <div class="no-container view-width">
+    <p class="highlight">width: 50vw</p>
+    <p>Siempre tomará de referencia el viewport (que en este caso particular tiene el mismo ancho del body).</p>
+  </div>
+
+  <div class="container">
+    <div class="label">
+      <p class="highlight">width: 800px</p>
+      <p>Los contenedores siempre <br> tendrán el mismo ancho.</p>
+    </div>
+    <div class="porcentage">
+      <p class="highlight">width: 50%</p>
+      <p>Siempre tomará de referencia su padre (el contenedor turquesa).</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="label">
+      <p class="highlight">width: 800px</p>
+      <p>Los contenedores siempre <br> tendrán el mismo ancho.</p>
+    </div>
+    <div class="view-width">
+      <p class="highlight">width: 50vw</p>
+      <p>Siempre tomará de referencia el viewport.</p>
+    </div>
+  </div>
+
+
+  <div class="login">
+    <p class="highlight">Login</p>
+    <p>
+      <label>
+        <span>Usuario:</span>
+        <input type="text" placeholder="Escribe tu usuario aquí">
+      </label>
+    </p>
+    <p>
+      <label>
+        <span>Clave:</span>
+        <input type="password" placeholder="Escribe tu clave aquí">
+      </label>
+    </p>
+    <p class="notification">Combinamos una unidad relativa (<em>width: 90%;</em>) con un máximo fijo (<em>max-width: 500px;</em>) para lograr que nuestro cuadro de login se agrande hasta un cierto punto.</p>
+  </div>
+
+</body>
+</html>
