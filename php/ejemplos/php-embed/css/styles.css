@@ -1,0 +1,44 @@
+/*
+<header>
+  <h1><?= $pageTitle ?? 'E-commerce' ?></h1>
+  <nav>
+    <ul>
+      <li><a href="index.php">Home</a></li>
+      <li><a href="about.php">About</a></li>
+      <li><a href="faq.php">Faq</a></li>
+      <li><a href="products.php">Products</a></li>
+    </ul>
+  </nav>
+</header>
+*/
+
+
+
+body {
+    font-family: sans-serif;
+}
+
+header {
+    background-color: #ccc;
+}
+
+header h1 {}
+
+header nav {}
+
+header nav ul {}
+
+header nav ul li {}
+
+
+main
+
+footer {
+    background-color:black;
+}
+
+footer nav {}
+
+footer nav ul {}
+
+footer nav ul li {}
