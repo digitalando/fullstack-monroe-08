@@ -1,0 +1,143 @@
+/****************************
+  Estilos Generales
+****************************/
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 15px;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Reiniciamos todos los ul li que estén dentro de un nav */
+nav ul {
+  padding: 0;
+  margin: 0;
+}
+nav ul li { list-style: none; }
+
+/****************************
+  Header
+****************************/
+
+/* Las imágenes son elementos de linea por eso es necesario
+ el display:block; */
+.main-header .logo {
+  display: block;
+  border-radius: 50%;
+  margin: 0 auto 30px;
+}
+
+.main-header .toggle-nav {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: #333;
+  color: white;
+  margin: 0 auto 15px;
+  text-align: center;
+}
+
+.toggle-nav span {
+  font-size: 32px;
+  line-height: 50px;
+}
+
+.main-nav {
+  margin-bottom: 30px;
+  display: none;
+}
+
+.main-nav.active {
+  display: block;
+}
+
+.main-nav ul li a,
+.main-footer ul li a {
+  /* Tamaño y posicion */
+  display: block;
+  height: 50px;
+  margin-bottom: 1px;
+  /* Texto */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 50px;
+  /* Otros estilos */
+  background-color: #333;
+}
+
+.main-nav ul li a:hover,
+.main-footer ul li a:hover {
+  background-color: #666;
+}
+
+/****************************
+  Listado de productos
+****************************/
+
+/* Hero */
+.banner img {
+  /*visibility: hidden;*/
+  display: none;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+/*
+<section class="vip-products">
+  <article class="product">
+    <div class="photo-container">
+      <img class="photo" src="images/img-pdto-1.jpg" alt="pdto 01">
+      <img class="special" src="images/img-nuevo.png" alt="plato nuevo">
+      <a class="zoom" href="#">Ampliar foto</a>
+    </div>
+    <h2>Lorem ipsum amet</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
+    <a class="more" href="#">ver más</a>
+  </article>
+</section>
+*/
+
+.vip-products { margin-bottom: 30px; }
+
+.product { margin-bottom: 15px; }
+  .photo-container { position: relative; }
+    .photo {
+      width: 100%;
+    }
+    .special {
+      position: absolute;
+      top: 0;
+      right: 12px;
+    }
+    a.zoom {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 0;
+      margin-top: -25px;
+      height: 50px;
+      line-height: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      text-transform: uppercase;
+      text-align: center;
+    }
+  h2 {}
+  p {}
+  a.more {
+    display: inline-block;
+    background-color: #333;
+    padding: 12px;
+  }
+
+@media screen and (min-width: 600px) {
+  body { background-color: green; }
+}
