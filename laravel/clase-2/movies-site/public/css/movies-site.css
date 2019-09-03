@@ -1,0 +1,33 @@
+/* Generic styles */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* Header */
+header,
+footer {
+  padding: 3rem;
+  text-align: center;
+  color: white;
+  background: linear-gradient(#833ab4, #fd1d1d, #fcb045);
+}
+
+header a,
+footer a { color: white }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.movies-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.movies-container .card {
+  width: 25%;
+}
