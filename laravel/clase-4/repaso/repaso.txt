@@ -1,0 +1,151 @@
+Pasos:
+# composer create-project laravel/laravel movies-site 5.8
+> Configurar la base de datos de movies_db
+# php artisan serve
+
+> Abrir una segunda consola para trabajar con el artisan
+> Crear modelos para películas y géneros
+# php artisan make:model Movie
+# php artisan make:model Genre
+> Completar las variables protegidas $table, $fillable, $hidden, $casts según corresponda
+> Crear las relaciones, en este caso movie-belongsTo-genre y genre-hasMany-movies. Recordar que los métodos deberían nombrarse en sigular si traen un registro (1 género por película) y en plural si traen muchos registros (muchas películas por género);
+
+
+> Crear los controladores para películas y géneros
+# php artisan make:controller MoviesController -r
+# php artisan make:controller GenreController -r
+> Vincular el modelo al controlador (use App\NombreDelModelo;)
+> Crear el código para las 7 acciones en el controllador *1
+
+? ¿Cuando programás a mano los modelos, usar la clase como input de la función?
+
+> Crear las 7 rutas para las acciones del resource *1
+
+> Crear la carpeta de layouts y generar la estructura de HTML del sitio.
+> Crear las 3 vistas necesarias (index, create, edit)
+> Creamos una carpeta por controllador (ej. movies) y adentro ponemos las vistas por el nombre de la acción (index, create, edit).
+
+*1 Las 7 acciones de un ABM o CRUD
+  - index -> lista los registros
+  - create -> muestra formulario de nuevo registro
+  - store -> guarda el nuevo registro
+  - edit -> muestra el formulario edición de un registro existente
+  - update -> actualiza un registro existente
+  - destroy -> borra un registro existente
+
+Ejemplo de las rutas (importante el orden);
+- GET|HEAD  | genres              | genres.index   | GenresController@index
+- POST      | genres              | genres.store   | GenresController@store
+- GET|HEAD  | genres/create       | genres.create  | GenresController@create
+- GET|HEAD  | genres/{genre}      | genres.show    | GenresController@show
+- PUT|PATCH | genres/{genre}      | genres.update  | GenresController@update
+- DELETE    | genres/{genre}      | genres.destroy | GenresController@destroy
+- GET|HEAD  | genres/{genre}/edit | genres.edit    | GenresController@edit
+
+# Modelos
+- protected $table = 'nombre_de_tabla'; // sugerido por prolijidad
+- protected $fillable = ['campo1']; // para lo que quiero guardar en base
+- protected $hidden = ['campo2']; // para lo que no quiero mostrar el vista
+  - Ejemplo los campos de fk
+- protected $cast = ... ;  // para cambiar el tipo de dato que viene por base
+
+## Relaciones
+
+// Para traer la información de las tablas de corte / pivot
+return $this->belongsToMany('actors')->withPivot('campo1');
+
+## CRUD
+
+Movie::create
+Movie::update
+$movie->delete
+
+hasOne / hasMany / belongsToMany
+create => attach();
+update => sync(); // Tiene sentido cuando hay más datos en la relación
+delete => detach();
+
+### Para relaciones muchos a muchos creamos un controlador propio
+
+php artisan make controller ActorsMoviesController
+
+Para crear, actualizar o borrar la relación necesitamos tener ambos modelos
+
+$movie = Movie::findOrFail($id);
+
+// store
+$actor->movies()->attach($movie);
+$actor->movies()->attach($movie, ['awards' => 3]);
+//$movie->actors()->attach($actor);
+
+
+// update
+$actor->movies()->sync([
+  $movie->id, [awards => 2]
+]);
+
+// destroy
+//$movie->actors()->detach($actor);
+
+Controlador
+- Siempre importar modelos
+
+- Vista con buscador
+
+// Me traigo las relaciones
+$movies = Movies::with('genres', 'actors');
+
+if ($request->has('awards')) {
+  $movies->where('awards', $request->input('awards'));
+}
+
+if ($request->has('from_year')) {
+  $movies->where('release_date', '>', $request->input('from_year'));
+}
+
+// dd($movies->toSql());
+// $projects->dd();
+// $projects->dump();
+
+$movies->get();
+
+
+## Otros
+dd('algo'); para marcar que la vista responde.
+
+# Migraciones
+
+php artisan make migration createCommentsTable // Laravel toma el nombre de la tabla y el create como operacion
+
+php artisan make migration addColumnMovieIdToCommentsTable
+
+
+// Los FKs tienen que ser unsignedBigInteger
+$table->unsignedBigInteger('user_id');
+
+$table->bitIngeger(user_id)->unsigned();
+$table->string('body');
+$table->boolean
+$table->timestamps();
+$table->softDeletes();
+
+Up
+Schema::table('comments'), function (Blueprint ) {
+  $table->foreign('user_id')->references('id')->on('users');
+}
+
+Down
+$table->dropForeign('user_id');
+
+php artisan migrate:status
+
+# Factory
+php make:factory CommentsFactory --model=Comment
+
+
+# Seeders
+php make:seeder CommentsTableSeeder
+
+factory(Comment::class, 100)->create();
+
+Database Seeder
