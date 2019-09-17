@@ -1,0 +1,170 @@
+# JS Clase 2
+
+## Funciones
+
+function fullname (firstname) {
+
+}
+
+function logitud(string) {
+  return string.length;
+}
+
+var caracteres = longitud('¡Hola mamá, estoy programando!') // 30
+
+function greet(firstname, lastname) {
+  return "Hola " + firstname + " " + lastname + "!";
+  // return `Hola ${firstname} ${lastname}!`; // ES6
+}
+
+
+function greet(firstname, lastname) {
+  return `Hola ${firstname} ${lastname}!`; // ES6
+}
+
+// arrow version
+// (firstname, lastname) => { `Hola ${firstname} ${lastname}!` }
+
+### Anónimas
+function () {}
+
+### Arrow
+() => {}
+
+### Scope
+
+var fullname = 'Juan Perez';
+
+function greet(firstname, lastname) {
+  return "Hola " + fullname + "!";
+}
+
+function greet(firstname, lastname) {
+  let fullname = firstname + " " + lastname;
+  return "Hola " + fullname + "!";
+}
+
+const valorQueNoCambia = 'img/productos';
+
+---
+
+
+function greet(firstname, lastname) {
+  var fullname = firstname + " " + lastname;
+  return "Hola " + fullname + "!";
+}
+
+### Closures (funciones dentro de funciones)
+
+function dobleDelSiguiente(numero) {
+  function sumar(numero) { return numero++ };
+  function multiplicar(numero, multiplicador) { return numero * multiplicador };
+  var total = sumar(numero);
+  total = multiplicar(total, 2);
+  return total;
+}
+
+
+### Callbacks
+function operacionMatematica(num1, num2, operacion) {
+  return operacion(num1, num2);
+}
+
+operacionMatematica(10, 45, function (num1, num2) {
+  return num1 + num2;
+});
+
+function sumar(num1, num2) {
+  return num1 + num2;
+}
+
+operacionMatematica(10, 45, sumar);
+
+
+## Arrays
+
+array = [1, 2, 3];
+
+// agregar un elemento
+array.push(4);
+
+// quitar un elemento
+array.pop();
+
+// buscar el índice de un elemento
+array.indexOf(2); // 1
+
+// recorrer un array con for ... of
+for(var number of array) {
+  console.log(numero);
+}
+
+// recorrer un array con forEach()
+array.forEach(function(numero) {
+  console.log(numero)
+});
+
+array.map(function(element) {
+ return element * 2;
+})
+
+array.filter((element) =>  element % 2 == 0)
+
+array.reduce((total, element) => total += element)
+
+array.join(", ");
+
+// buscar un elemento
+array.find((element) => element == 8)
+
+
+## Manejo de DOM
+
+### Agregar y quitar elementos
+
+var ul = document.querySelector('ul');
+var li = document.createElement('li');
+var liText = document.createElement('Texto del li');
+
+li.append(liText);
+ul.append(li);
+
+var lis = ul.children;
+var liToDelete = lis[2];
+ul.removeChild(liToDelete);
+
+### Manejo de clases de CSS
+
+elemento.classList.contains("alert-danger");
+elemento.classList.remove("alert-danger");
+elemento.classList.add("alert-info");
+elemento.classList.toggle("active");
+
+### Eventos
+
+window.onload = function() {
+  // código que correrá cuando se carge la página
+}
+
+
+element.document.querySelector('.my-class');
+
+element.onMouseover
+
+var event = element.addEventListener('mouseover', (event) => {
+  event.preventDefault();
+  // código a ejecutar
+})
+
+
+### Timers
+
+// Una sola vez
+va myTimeout = setTimeout(function () {}, 1000) // --> milisegundos
+
+clearTimeout(myTimeout);
+
+// Cada x milisegundos
+var myInterval = setIterval(function () {}, 1000) // --> milisegundos
+
+clearInterval(myInterval);

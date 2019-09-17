@@ -1,0 +1,125 @@
+# Javascript
+- Nos permite que nuestra página sea interactiva
+- Funciona del lado del navegador
+- No trabaja de la misma manera que php.
+
+- Introducción a la consola del navegador
+console.log();
+
+## Como lo escribimos en nuestro sitio
+- Script en línea
+<script></script>
+
+- Script externo
+<script src="js/main.js"></script>
+
+## Repaso
+- Tipos de datos: string, number, boolean, array, object
+- Tipos de datos especiales: null, undefined, NaN
+  - Es un lenguaje debilmente tipado
+
+var objeto = {
+  propiedad: 'valor',
+  metodo: function () { ... }
+}
+
+En JS podemos almacenar funciones en variables. Para ejecutarlas solo es necesario agregar los paréntesis al final ().
+
+objeto.metodo --> devuelve el contenido del método
+objeto.metodo() --> ejecuta el método
+
+
+- Falsy: false, null, 0, undefined, a, ""
+- Truthy: true, 1, [] --> WTF?
+
+- Operadores: igual que PHP
+
+- if: igual que PHP
+- if ternario: igual que PHP
+
+- for: igual que PHP
+- while, do while: igual que PHP
+
+## Nuevo
+- Recorrer arrays con for ... of
+for (elemento of array) { ... }
+
+var frutas = ["Manzana", "Naranja", "Uva"];
+
+for (var fruta of frutas) {
+  alert( fruta );
+}
+
+- Recorrer objetos con for ... in
+for (propiedad in objecto) { ... }
+
+let persona = {
+  nombre: "Juan",
+  edad: 30,
+  esAdmin: true
+  saludar() { return 'Hola! Mi nombre es ' + this.name }
+};
+
+this --> para acceder a las propiedades dentro del Objeto
+user.name // Acceder a sus propiedades --> Juan
+user.sayHello() // Ejecutar sus métodos --> Hola! Mi nombre es Juan
+
+for (let prop in user) {
+  alert( clave );  // nombre, edad, esAdmin
+  alert( persona[clave] ); // Juan, 30, true
+}
+
+## alert() / prompt() / confirm() --> DEPRECADOS
+alert('Mi texto de alerta');
+var respuesta = prompt('Escribí tu contraseña xD');
+var otraRespuesta = confirm('¿Estás segurísimo/a que querés borrar todo?');
+
+Todos ellos son sincrónicos, es decir que cortan la ejecución de JS hasta que se resuelvan los diálogos.
+
+## DOM - Document Object Model
+- Representación de JS de la WEB que estamos navegando
+- Gráfico
+- Dinamismo
+
+document.querySelector(); <-- trae un resultado
+document.querySelectorAll(); <-- trae todos los resultados, devuelve una lista de nodos
+document.getElementById();
+
+document.querySelector('elemento');
+document.querySelector('.clase');
+document.querySelector('#id');
+
+// Array.from(nodelist)
+// const divyArray = […document.querySelectorAll(‘.divy’)]
+
+var elemento = document.querySelector('.elemento');
+
+### Método style
+- Los parámetros se escriben con cammelCase en lugar de snake-case como en CSS
+
+elemento.style.display = "none";
+elemento.style.color = "olive";
+elemento.style.textAlign = '...';
+elemento.style.fontFamily = '...';
+elemento.style.fontWeight = '...';
+elemento.style.backgroundColor = '...';
+
+### Manejo de atributos
+
+elemento.setAttribute('attr', 'value');
+elemento.hasAttribute('attr');
+elemento.getAttribute('attr');
+elemento.removeAttribute('attr');
+
+var enlace = document.querySelector('a');
+var destino = enlace.getAttribute('href');
+
+elemento.classList.remove("alert-danger");
+elemento.classList.add("alert-info");
+elemento.classList.toggle("active");
+
+Ojo que para que esto funcione, tiene que estar cargada la página primero. Osea que el código JS debe cargarse luego de que la página se cargue.
+
+https://javascript.info/
+https://repl.it/@lando_dh/ProgramacionCeroClaseUno
+https://repl.it/@lando_dh/ProgramacionCeroClaseDos
