@@ -19,5 +19,13 @@ if (
 var colors = ['red', 'brown', 'orange', 'tomato', 'yellow'];
 
 var lis = document.querySelectorAll('ul li');
-let liArray = Array.from(lis);
-for (let li of liArray) { li.style.color = colors[Math.floor(Math.random()*5)] }
+//let liArray = Array.from(lis);
+//for (let li of lis) { li.style.color = colors[Math.floor(Math.random()*5)] }
+lis.forEach((li) => { li.style.color = colors[Math.floor(Math.random()*5)] })
+
+var ul = document.querySelector('ul');
+var li = document.createElement('li');
+var liText = document.createTextNode('Texto del li');
+
+li.append(liText);
+ul.append(li);
