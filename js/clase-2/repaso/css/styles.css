@@ -2,9 +2,10 @@
 /* https://coolors.co/b9e3c6-59c9a5-d81e5b-23395b-fffd98 */
 
 :root {
-  --primary-color: #59c9a5;
-  --secondary-color: #23395b;
-  --border-radius: 24px;
+  --primary-color: #f5cb5c;
+  --secondary-color: #e8eddf;
+  --dark-color: #242423;
+  --border-radius: 12px;
 }
 
 * { box-sizing: border-box; }
@@ -13,27 +14,52 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   min-height: 100vh;
+}
+
+body.blancoNegro {
+  filter: grayscale(100%);
 }
 
 header,
 footer {
   overflow: hidden;
   padding: 24px;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   color: white;
   text-align: center;
 }
+
+header a {
+  display: inline-block;
+  padding: 6px;
+  margin: 6px;
+  border-radius: var(--border-radius);
+}
+
+header a.active {
+  color: #e8eddf;
+  background: #f22b29;
+}
+
+header a:hover {
+  display: inline-block;
+  padding: 6px;
+  margin: 6px;
+  background: #c9a74c;
+}
+
 
 main {
   padding: 72px 0;
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--dark-color);
   font-weight: bold;
   text-decoration: none;
+  border-bottom: 3px solid var(--dark-color);
 }
 
 .container {
@@ -64,6 +90,7 @@ form select {
 }
 
 form input,
+form button,
 form select {
   margin-top: 6px;
   background-color: white;

@@ -10,6 +10,11 @@ function logitud(string) {
   return string.length;
 }
 
+// JavaScript nos permite asignar una función a una varible.
+var longitud = function (string) {
+  return string.length;
+}
+
 var caracteres = longitud('¡Hola mamá, estoy programando!') // 30
 
 function greet(firstname, lastname) {
@@ -23,7 +28,7 @@ function greet(firstname, lastname) {
 }
 
 // arrow version
-// (firstname, lastname) => { `Hola ${firstname} ${lastname}!` }
+// (firstname, lastname) => `Hola ${firstname} ${lastname}!`
 
 ### Anónimas
 function () {}
@@ -48,17 +53,21 @@ const valorQueNoCambia = 'img/productos';
 
 ---
 
-
 function greet(firstname, lastname) {
   var fullname = firstname + " " + lastname;
   return "Hola " + fullname + "!";
 }
 
-### Closures (funciones dentro de funciones)
+### Closures
+
+- Son funciones dentro de funciones
+- Son de scope local, es decir que no se ven desde afuera
+- Acceden automáticamente a los parámetros de la función padre
+- Tienen cierta similud a los métodos privados de las clases de PHP.
 
 function dobleDelSiguiente(numero) {
-  function sumar(numero) { return numero++ };
-  function multiplicar(numero, multiplicador) { return numero * multiplicador };
+  function sumar() { return numero++ };
+  function multiplicar(multiplicador) { return numero * multiplicador };
   var total = sumar(numero);
   total = multiplicar(total, 2);
   return total;
@@ -66,6 +75,11 @@ function dobleDelSiguiente(numero) {
 
 
 ### Callbacks
+
+- Son funciones que pasamos como parámetro a otra función
+- Podemos ejecutarlas dentro de la función agregando peréntesis a su nombre.
+- Tiene cierta similitud el polimorfismo que vimos en PHP
+
 function operacionMatematica(num1, num2, operacion) {
   return operacion(num1, num2);
 }
@@ -89,7 +103,7 @@ array = [1, 2, 3];
 array.push(4);
 
 // quitar un elemento
-array.pop();
+var ultimoElemento = array.pop();
 
 // buscar el índice de un elemento
 array.indexOf(2); // 1
@@ -104,17 +118,37 @@ array.forEach(function(numero) {
   console.log(numero)
 });
 
+### Map
+- Aplica una función a cada elementos
+- Normalmente se usa para transformaciones
+- Devuelve un nuevo array con los elementos modificados
+
 array.map(function(element) {
  return element * 2;
 })
 
+### Filter
+- Aplica una función de filtrado a cada elemento
+- Devuelve un nuevo array con los elementos que cumplieron la condición
+
 array.filter((element) =>  element % 2 == 0)
+
+### Reduce
+- Aplica una función a cada elemento
+- Cada iteración parte del resultado parcial anterior
+- Obtiene un único resultado final
 
 array.reduce((total, element) => total += element)
 
+### Join
+- Devuelve un string que resulta de concatenar los elementos con un separador
+
 array.join(", ");
 
-// buscar un elemento
+### Find
+- Busca un elemento dentro de un array, devuelve la primera coincidencia
+- Recibe una función como parámetro de búsqueda
+
 array.find((element) => element == 8)
 
 
@@ -124,7 +158,7 @@ array.find((element) => element == 8)
 
 var ul = document.querySelector('ul');
 var li = document.createElement('li');
-var liText = document.createElement('Texto del li');
+var liText = document.createTextNode('Texto del li');
 
 li.append(liText);
 ul.append(li);
@@ -133,29 +167,52 @@ var lis = ul.children;
 var liToDelete = lis[2];
 ul.removeChild(liToDelete);
 
+
 ### Manejo de clases de CSS
+- Nos permiten un manejo más sencillo de las clases de CSS
 
 elemento.classList.contains("alert-danger");
 elemento.classList.remove("alert-danger");
 elemento.classList.add("alert-info");
 elemento.classList.toggle("active");
+elemento.classList.replace("active", "inactive");
+
 
 ### Eventos
+- Javascript nos permite escribir una función en cada uno de los eventos de un elemento.
+- Utilizando este método, si queremos escribir una segunda función, sobrescribimos la anterior.
 
 window.onload = function() {
-  // código que correrá cuando se carge la página
+  // código que correrá cuando se cargue la página
 }
-
 
 element.document.querySelector('.my-class');
 
-element.onMouseover
+element.onclick = function () { ... };
+element.onfocus = function () { ... };
+element.onblur = function () { ... };
+element.onchange = function () { ... };
+element.onsubmit = function () { ... };
 
-var event = element.addEventListener('mouseover', (event) => {
+element.onmouseover = function () { ... };
+element.onmousemove = function (event) {
+  event.clientX,
+  event.clientY
+};
+
+- Esta segunda manera de generar eventos es recomendada sobre la anterior porquq permite:
+  - Agregar múltiples funciones a un mismo evento.
+  - Quitar cualquiera de ellas sin modificar las otras.
+
+element.addEventListener('submit', changeColor);
+element.removeEventListener('submit', changeColor);
+
+var event = element.addEventListener('submit', (event) => {
   event.preventDefault();
   // código a ejecutar
 })
 
+clickclickclick.click
 
 ### Timers
 
