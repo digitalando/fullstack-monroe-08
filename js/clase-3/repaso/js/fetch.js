@@ -1,46 +1,82 @@
-window.addEventListener('load', function () {
-	var selectPaises = document.querySelector('#country');
-	var selectProvincias = document.querySelector('#province');
-	var contenedorProvincias = selectProvincias.parentElement.parentElement;
+// fetch('https://restcountries.eu/rest/v2/all')
+//   .then( function (response)  {
+//     return response.json()
+//   })
+//   .then( function (data)  {
+//     let select = document.getElementById('country');
+//     for(country of data) {
+//       let option = document.createElement('option');
+//       option.append(document.createTextNode(country.name));
+//       option.setAttribute('value', country.alpha3Code);
+//
+//       select.append(option);
+//     }
+//   })
+//   .catch( function (error) {
+//     return console.error(error)
+//   })
 
-	// Función genérica para hacer llamados FETCH
-	function genericFetchCall (endPoint, callback) {
-		fetch(endPoint)
-			.then(function (response) {
-				return response.json(); // array de objetos literales
-			})
-			.then(function (data) {
-				callback(data);
-			})
-			.catch(function (error) {
-				console.log('El error fue: ' + error);
-			});
-	}
 
-	// Función para traer los países e insertarlos en el selectPaises
-	function insertCountries (countries) {
-		countries.forEach(function (oneCountry) {
-			selectPaises.innerHTML += `<option value="${oneCountry.alpha3Code}">${oneCountry.name}</option>`;
-		});
-	}
+goFetch = (url, callback) => {
+  fetch(url)
+    .then( function (response)  {
+      return response.json()
+    })
+    .then( function (data)  {
+      callback(data)
+    })
+    .catch( function (error) {
+      return console.error(error)
+    })
+}
 
-	// Llamamos a la api de Paises
-	genericFetchCall('https://restcountries.eu/rest/v2/all', insertCountries);
+console.log('declaración goFetch');
 
-	// Función para traer las provincias e insertarlas en el selectProvincias
-	function insertProvinces (provinces) {
-		provinces.provincias.forEach(function (unaProvincia) {
-			selectProvincias.innerHTML += `<option value="${unaProvincia.nombre}">${unaProvincia.nombre}</option>`;
-		});
-	}
+goFetch('https://restcountries.eu/rest/v2/all', function(data) {
+  let select = document.getElementById('country');
+  for(country of data) {
+    let option = document.createElement('option');
+    option.append(document.createTextNode(country.name));
+    option.setAttribute('value', country.alpha3Code);
 
-	selectPaises.addEventListener('change', function () {
-		if (this.value.toLowerCase() === 'argentina') {
-			contenedorProvincias.style.display = 'block';
-			genericFetchCall('https://apis.datos.gob.ar/georef/api/provincias', insertProvinces);
-		} else {
-			contenedorProvincias.style.display = 'none';
-			selectProvincias.innerHTML = '<option value="">Elegí una provincia</option>';
-		}
-	});
+    select.append(option);
+  }
+  console.log('llegó goFetch de paises');
+})
+console.log('fin goFetch de paises');
+
+
+goFetch('https://apis.datos.gob.ar/georef/api/provincias', function(data) {
+  let select = document.getElementById('province');
+  for(province of data.provincias) {
+    let option = document.createElement('option');
+    option.append(document.createTextNode(province.nombre));
+    option.setAttribute('value', province.id);
+
+    select.append(option);
+  }
+  console.log('llegó goFetch de provincias');
 });
+console.log('fin goFetch de paises');
+
+
+
+window.addEventListener('load', () => {
+  console.log('terminó la carga de la página');
+
+  let select = document.getElementById('country');
+  let provincesRow = document.querySelector('form .row-provinces');
+
+  select.addEventListener('change', () => {
+    let currentValue = select.options[select.selectedIndex].value;
+    if (currentValue === 'ARG') {
+      provincesRow.style.display = 'block';
+    } else {
+      provincesRow.style.display = 'none';
+    }
+  })
+
+
+});
+
+console.log('llegé al final del js');
