@@ -3,11 +3,6 @@
 //   itemHome.classList.add('active');
 // };
 
-window.onbeforeunload = () => {
-  alert('No te vayas porfa');
-};
-
-
 let itemHomeActivo = () => {
    var itemHome = document.querySelector('.item-home');
    itemHome.classList.add('active');
